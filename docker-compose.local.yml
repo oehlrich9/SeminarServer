@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_DATABASE=agent
+    - MYSQL_USER=agent
+    - MYSQL_PASSWORD=agent
+    - TZ=Europe/Berlin
+    ports:
+    - 3306:3306
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+    - PMA_HOST=mysql
+    ports:
+    - 8081:80
